@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta charset="utf-8">
+        <title>HTML Template</title>
+		<link rel="stylesheet" href="styles/style.css">
+
+   
+    </head>
+    <body>
+        <div class="container">
+            <form action="/action_page.php" method="get">
+              <input type="checkbox" name="vehicle" id="bike" value="Bike"/> I have a bike<br>
+              <input type="checkbox" name="vehicle" id="car" onclick="myCar()" checked="checked" value="Car"/> I have a car<br>
+            </form>
+            <div id="exist">
+                Show me if car NOT checked
+            </div>
+        </div>
+        
+
+          <script>
+              function myCar() {
+    var bike = document.getElementById("bike");
+    var car = document.getElementById("car");
+    var exist = document.getElementById("exist");
+
+    if (car.checked == true){
+
+         exist.style.visibility = "hidden";
+    } else {
+      
+        exist.style.visibility = "visible";
+    }
+};
+   window.onLoad = function() {
+   var exist = document.getElementById("exist");
+   var carChecked = document.getElementById("car").checked
+   if (carChecked){
+    myCar();
+   } else {
+        exist.parentNode.removeChild(exist);
+   }
+};
+</script>
+   
+   
+    </body>
+</html>
